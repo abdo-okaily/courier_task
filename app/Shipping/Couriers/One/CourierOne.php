@@ -3,22 +3,16 @@
 namespace App\Shipping\Couriers\One;
 
 use App\Interfaces\ShippingIntegration;
-use App\Shipping\Couriers\One\CourierOneOriginal;;
 
 class CourierOne implements ShippingIntegration
 {
-    private static CourierOneOriginal $originalCalls;
-    function __construct()
-    {
-        self::$originalCalls = new CourierOneOriginal();
-    }
 
     /**
      * Start Shipping Process ...
      */
     public function createShipment($data)
     {
-        self::$originalCalls->createShipmentAndGetWaybill($data);
+        self::createShipmentAndGetWaybill($data);
     }
 
     /**
@@ -26,6 +20,22 @@ class CourierOne implements ShippingIntegration
      */
     public function trackShipment($trackingNumber)
     {
-        self::$originalCalls->getShipmentTrackingDetails($trackingNumber);
+        self::getShipmentTrackingDetails($trackingNumber);
+    }
+
+    private function createShipmentAndGetWaybill($data)
+    {
+        echo "Shipment is Created with This Data <br>";
+    }
+
+    private function getShipmentTrackingDetails($trackingNumber)
+    {
+        echo "Shipment details for package no #" . $trackingNumber . " is :<br>";
+        echo "<pre dir='ltr'>";
+        print_r([
+            'id' => $trackingNumber,
+            'status' => fake()->randomElement(['deliver', 'On Way','packaging']),
+        ]);
+        echo "</pre>";
     }
 }

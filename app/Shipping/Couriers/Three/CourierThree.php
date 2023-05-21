@@ -3,22 +3,15 @@
 namespace App\Shipping\Couriers\Three;
 
 use App\Interfaces\ShippingIntegration;
-use App\Shipping\Couriers\Three\CourierThreeOriginal;;
 
 class CourierThree implements ShippingIntegration
 {
-    private static CourierThreeOriginal $originalCalls;
-    function __construct()
-    {
-        self::$originalCalls = new CourierThreeOriginal();
-    }
-
     /**
      * Start Shipping Process ...
      */
     public function createShipment($data)
     {
-        self::$originalCalls->createShipmentAndGetWaybill($data);
+        self::createShipmentAndGetWaybill($data);
     }
 
     /**
@@ -26,7 +19,28 @@ class CourierThree implements ShippingIntegration
      */
     public function trackShipment($trackingNumber)
     {
-        self::$originalCalls->registerNumberToGetTrackingDetails();
-        self::$originalCalls->getTrackingDetails($trackingNumber);
+        self::registerNumberToGetTrackingDetails();
+        self::getTrackingDetails($trackingNumber);
+    }
+
+    private function createShipmentAndGetWaybill($data)
+    {
+        echo "Shipment is Created with This Data and way bill is generated <br>";
+    }
+
+    private function registerNumberToGetTrackingDetails()
+    {
+        echo "Shipment Register Number for tracking is Generated <br>";
+    }
+
+    private function getTrackingDetails($trackingNumber)
+    {
+        echo "Shipment details for package no #" . $trackingNumber . " is :<br>";
+        echo "<pre dir='ltr'>";
+        print_r([
+            'id' => $trackingNumber,
+            'status' => fake()->randomElement(['deliver', 'On Way','packaging']),
+        ]);
+        echo "</pre>";
     }
 }
