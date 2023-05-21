@@ -26,6 +26,9 @@ class CourierOne implements ShippingIntegration
     private function createShipmentAndGetWaybill($data)
     {
         echo "Shipment is Created with This Data <br>";
+        echo "<pre dir='ltr'>";
+        print_r($data);
+        echo "</pre>";
     }
 
     private function getShipmentTrackingDetails($trackingNumber)

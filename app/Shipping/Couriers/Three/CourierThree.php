@@ -26,6 +26,9 @@ class CourierThree implements ShippingIntegration
     private function createShipmentAndGetWaybill($data)
     {
         echo "Shipment is Created with This Data and way bill is generated <br>";
+        echo "<pre dir='ltr'>";
+        print_r($data);
+        echo "</pre>";
     }
 
     private function registerNumberToGetTrackingDetails()

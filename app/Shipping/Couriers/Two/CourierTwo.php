@@ -35,6 +35,9 @@ class CourierTwo implements ShippingIntegration
     private function createShipmentInfo($data)
     {
         echo "Shipment is Created with This Data <br>";
+        echo "<pre dir='ltr'>";
+        print_r($data);
+        echo "</pre>";
     }
 
     private function createShipmentInstructions()
