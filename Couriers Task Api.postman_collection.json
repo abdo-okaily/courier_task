@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "519da246-153e-4b6b-b554-aafa318d977b",
+		"name": "Couriers Task Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "899368"
+	},
+	"item": [
+		{
+			"name": "createShipment",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "courier",
+						"value": "One",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/courier/trackShipment/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"courier",
+						"trackShipment",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trackShipment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "courier",
+						"value": "One",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/courier/createShipment/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"courier",
+						"createShipment",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
