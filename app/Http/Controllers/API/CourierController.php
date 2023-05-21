@@ -15,7 +15,7 @@ class CourierController extends Controller
         //$courier = "One";
         //$courier = "Two";
         //$courier = "Three";
-        /*courier must be o n*/
+        /*Courier Must Hold A Value From The Previous Commented Variables*/
         $this->shipmentService = Shipment::make($courier);
     }
 
