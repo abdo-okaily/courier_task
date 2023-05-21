@@ -15,5 +15,7 @@ use App\Http\Controllers\API\CourierController;
 |
 */
 
-Route::post('courier/createShipment', 'CourierController@createShipment');
-Route::get('courier/CourierController/{id}', 'CourierController@trackShipment');
+Route::post('courier/createShipment', [CourierController::class,'createShipment']);
+Route::get('courier/trackShipment/{id}',[CourierController::class,'trackShipment']);
+
+

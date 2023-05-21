@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shipping\Couriers\CourierTwo\CourierTwoOriginal;
+namespace App\Shipping\Couriers\Two;
 
 class CourierTwoOriginal
 {
@@ -16,13 +16,11 @@ class CourierTwoOriginal
     public function createShipmentInstructions()
     {
         echo "Shipment Instructions is Created with This Data <br>";
-        die();
     }
 
     public function getShipmentWaybill()
     {
         echo "Shipment way bill is generated <br>";
-        die();
     }
 
     /**
@@ -37,6 +35,5 @@ class CourierTwoOriginal
             'status' => fake()->randomElement(['deliver', 'On Way','packaging']),
         ]);
         echo "</pre>";
-        die();
     }
 }

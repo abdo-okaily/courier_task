@@ -4,14 +4,19 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Interfaces\ShippingIntegration;
+use App\Shipping\Shipment;
 
 class CourierController extends Controller
 {
     private $shipmentService;
-    public function __construct(ShippingIntegration $shipmentService)
+    public function __construct()
     {
-        $this->shipmentService = $shipmentService;
+        $courier = \request()->header('courier');
+        //$courier = "One";
+        //$courier = "Two";
+        //$courier = "Three";
+        /*courier must be o n*/
+        $this->shipmentService = Shipment::make($courier);
     }
 
     public function createShipment(Request $request)

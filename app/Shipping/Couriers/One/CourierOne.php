@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Shipping\Couriers\CourierTwo;
+namespace App\Shipping\Couriers\One;
 
 use App\Interfaces\ShippingIntegration;
-use App\Shipping\Couriers\CourierTwo\CourierTwoOriginal;;
+use App\Shipping\Couriers\One\CourierOneOriginal;;
 
-class CourierThree implements ShippingIntegration
+class CourierOne implements ShippingIntegration
 {
-    private static CourierTwoOriginal $originalCalls;
+    private static CourierOneOriginal $originalCalls;
     function __construct()
     {
         self::$originalCalls = new CourierOneOriginal();
@@ -18,9 +18,7 @@ class CourierThree implements ShippingIntegration
      */
     public function createShipment($data)
     {
-        self::$originalCalls->createShipmentInfo($data);
-        self::$originalCalls->createShipmentInstructions();
-        self::$originalCalls->getShipmentWaybill();
+        self::$originalCalls->createShipmentAndGetWaybill($data);
     }
 
     /**

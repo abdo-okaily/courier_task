@@ -1,25 +1,26 @@
 <?php
 
-namespace App\Shipping\Couriers\CourierOne\CourierOneOriginal;
+namespace App\Shipping\Couriers\Three;
 
-class CourierOneOriginal
+class CourierThreeOriginal
 {
     /**
      * Start Shipping Process ...
      */
     public function createShipmentAndGetWaybill($data)
     {
-        echo "Shipment is Created with This Data <br>";
-        echo "<pre dir='ltr'>";
-        print_r($data);
-        echo "</pre>";
-        die();
+        echo "Shipment is Created with This Data and way bill is generated <br>";
+    }
+
+    public function registerNumberToGetTrackingDetails()
+    {
+        echo "Shipment Register Number for tracking is Generated <br>";
     }
 
     /**
      * Track Shipping Process ...
      */
-    public function getShipmentTrackingDetails($trackingNumber)
+    public function getTrackingDetails($trackingNumber)
     {
         echo "Shipment details for package no #" . $trackingNumber . " is :<br>";
         echo "<pre dir='ltr'>";
@@ -28,6 +29,5 @@ class CourierOneOriginal
             'status' => fake()->randomElement(['deliver', 'On Way','packaging']),
         ]);
         echo "</pre>";
-        die();
     }
 }

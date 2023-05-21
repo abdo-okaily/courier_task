@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interfaces\ShippingIntegration;
+namespace App\Interfaces;
 
 interface ShippingIntegration
 {

@@ -1,27 +1,28 @@
 <?php
 
-namespace App\Integrations\Shipment;
+namespace App\Shipping;
 
 use App\Interfaces\ShippingIntegration;
 use App\Exceptions\Shipping\UndefinedShippingMethodException;
-use App\Shipping\Couriers As Couriers;
+
 class Shipment
 {
+
     /**
      * Factory Method that create new instance of the shipping integration.
      */
     public static function make($courier_name) : ShippingIntegration
     {
-        /*Couriers
-        switch($shippingMethodID) {
-            case ShippingMethods::TOROD:
-                return new Torod;
-            case ShippingMethods::BEZZ:
-                return new CourierTwo;
-        }*/
+        $name = 'App\\Shipping\\Couriers\\'.$courier_name.'\\Courier'.$courier_name;
 
+        if (class_exists($name))
+        {
+            return new $name();
+        }
+        else
+        {
+            throw new UndefinedShippingMethodException;
+        }
 
-
-        throw new UndefinedShippingMethodException;
     }
 }
